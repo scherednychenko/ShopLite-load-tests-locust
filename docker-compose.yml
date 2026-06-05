@@ -1,0 +1,31 @@
+# One-command demo: mock backend + Locust (headless) + HTML report.
+#
+#   docker compose up --build
+#
+# Locust waits for the mock to be healthy, runs the scenario headless, and writes
+# report.html + CSV stats to ./results/ on the host.
+services:
+  mock:
+    build: ./mock
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://localhost:8080/api/catalog')"]
+      interval: 3s
+      timeout: 3s
+      retries: 10
+
+  locust:
+    image: locustio/locust:latest
+    depends_on:
+      mock:
+        condition: service_healthy
+    volumes:
+      - ./locust:/mnt/locust:ro
+      - ./results:/results
+    command: >
+      -f /mnt/locust/locustfile.py
+      --headless
+      --host http://mock:8080
+      --users 10 --spawn-rate 5 --run-time 60s
+      --html /results/report.html
+      --csv /results/shoplite
+      --exit-code-on-error 1
