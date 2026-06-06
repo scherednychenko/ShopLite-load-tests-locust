@@ -40,6 +40,12 @@ preventing "fast but wrong" results.
   # then open http://localhost:8089
   ```
 
+## Sample report
+
+A run against the local mock backend (all green):
+
+![Locust HTML report — 5,933 requests, 0 failures](docs/img/sample_report.png)
+
 ## Notes
 - Endpoints are placeholders; the mock returns the minimal contract (`cartId`/`orderId`) so the journey runs green.
 - The mock's latencies are illustrative only — this demonstrates the tooling and reporting, not real system performance.
