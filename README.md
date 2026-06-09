@@ -8,6 +8,8 @@ served by a tiny local mock backend.
 This repo is part of a small series implementing the *same* scenario in different tools
 (JMeter, k6, Locust, Gatling) so they can be compared directly.
 
+> 💡 **The script is the easy part.** The real value is knowing *what* to test, shaping the load model, reading the results, and turning them into a go/no-go call — judgment a demo can't capture.
+
 ## Contents
 - `locust/locustfile.py` — the test: one `HttpUser` with the 3-step journey, named transactions
 - `mock/` — dependency-free mock backend for the 3 placeholder endpoints
