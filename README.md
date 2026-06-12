@@ -53,10 +53,9 @@ A run against the local mock backend (all green):
 - The mock's latencies are illustrative only — this demonstrates the tooling and reporting, not real system performance.
 - `--exit-code-on-error 1` makes the container exit non-zero if any request fails (CI-friendly).
 
-## One scenario, five tools
+## One scenario, six tools
 
-The same ShopLite journey (browse → add-to-cart → checkout) is implemented across five
-load-testing tools — each as a one-command Dockerized demo with an HTML report:
+The same ShopLite journey (browse → add-to-cart → checkout) is implemented across five load-testing tools (plus a frontend Core Web Vitals one) — each as a one-command Dockerized demo with an HTML report:
 
 | Tool | Language / DSL | SLOs as | Report | Repo |
 |---|---|---|---|---|
@@ -65,3 +64,4 @@ load-testing tools — each as a one-command Dockerized demo with an HTML report
 | Locust | Python | Code-level checks | Built-in HTML | [ShopLite-load-tests-locust](https://github.com/scherednychenko/ShopLite-load-tests-locust) |
 | Gatling | Scala DSL | Assertions | HTML charts | [ShopLite-load-tests-gatling-scala](https://github.com/scherednychenko/ShopLite-load-tests-gatling-scala) |
 | Gatling | Java DSL | Assertions | HTML charts | [ShopLite-load-tests-gatling-javaDSL](https://github.com/scherednychenko/ShopLite-load-tests-gatling-javaDSL) |
+| sitespeed.io | JavaScript | Budgets | HTML + Grafana | [ShopLite-ui-perf](https://github.com/scherednychenko/ShopLite-ui-perf) |
