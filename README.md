@@ -13,6 +13,7 @@ This repo is part of a small series implementing the *same* scenario in differen
 > **Note.** This is a personal portfolio project — a from-scratch reconstruction
 > built entirely on public, open-source tools against a fictional storefront. It is
 > not affiliated with, and contains no material from, any employer or client.
+
 ## Contents
 - `locust/locustfile.py` — the test: one `HttpUser` with the 3-step journey, named transactions
 - `mock/` — dependency-free mock backend for the 3 placeholder endpoints
